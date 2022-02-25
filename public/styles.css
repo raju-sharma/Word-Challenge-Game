@@ -1,0 +1,151 @@
+*,*::before,*::after
+{
+    box-sizing: border-box;
+    font-family: Arial;
+}
+h1 {
+    width: 100%;
+    margin: 0%;
+    padding: 0.25em;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    font-size: 30px;
+}
+body 
+{
+    background-color: rgb(162, 231, 241);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 1em;
+    font-size: medium;
+}
+.guess-grid {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    flex-grow: 1;
+    grid-template-columns: repeat(5,4em);
+    grid-template-rows: repeat(6,4em);
+    gap: .25em;
+    margin-bottom: 1em
+  }
+  .tile
+  {
+      background-color: rgb(233, 228, 238);
+      font-size: 2em;
+      border: 0.05em;
+      text-transform: uppercase;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+      user-select: none;
+      transition: transform 250ms;
+  }
+  .tile[data-state = 'active']
+  {
+      background-color: rgb(223, 215, 215);
+  }
+  .tile[data-state = 'wrong']
+  {
+      background-color: grey;
+  }
+  .key.wrong
+  {
+    background-color: grey
+  }
+  .tile[data-state = 'wrong-index']
+  {
+      background-color: goldenrod;
+  }
+  .key.wrong-index
+  {
+    background-color: goldenrod;
+  }
+
+  .tile[data-state = 'correct']
+  {
+      background-color: green;
+  }
+  .key.correct
+  {
+    background-color: green;
+  }
+
+  .keyboard 
+  {
+    display: grid;
+    grid-template-columns: repeat(20,minmax(auto,1.25em));
+    grid-auto-rows: 3em;
+    gap: .25em;
+    justify-content: center; 
+  }
+ .key
+ {
+     font-size: large;
+     grid-column: span 2;
+     border: none;
+     padding: 0;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     background-color:black;
+     color: white;
+     fill: white;
+     text-transform: uppercase;
+     border-radius: .25em;
+     cursor: pointer;
+     user-select: none;
+ }
+.large-key
+{ 
+    grid-column: span 3;
+}
+.alert-container
+{
+    position: fixed;
+    top: 10vh;
+    left: 50vw;
+    transform: translateX(-50%);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.alert
+{
+    pointer-events: none;
+    background-color: rgb(255, 115, 0);
+    padding: .75em;
+    border-radius: .25em;
+    opacity: 0.8;
+    transition: opacity 500ms ease-in-out;
+    margin-bottom: .5em;
+}
+
+.tile.flip {
+ transform: rotateX(90deg);
+ 
+}
+.alert.hide {
+    opacity: 0;
+}
+.alert:last-child
+{
+    margin-bottom: 0;
+}
+.wrapper {
+    text-align: center;  
+}
+.refresh {
+  border: none;
+  background-color: springgreen;
+  padding: 0.8em 1.5em;
+  font-size: x-large;
+  cursor: pointer;
+  text-align: center;
+}
