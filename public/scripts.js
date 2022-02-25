@@ -1,4 +1,4 @@
-var dictionary = fetch('./wordList.txt').then((res) =>{
+var dictionary = fetch('/wordList.txt').then((res) =>{
     return res.text()
 }).then((data)=>{ 
     dictionary = data.toString().split("\n")
